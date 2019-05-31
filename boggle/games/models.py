@@ -5,7 +5,7 @@ class Game(models.Model):
     duration = models.IntegerField()
     board = models.CharField(max_length=255)
 
-    auth_token = models.CharField(max_length=255)
+    token = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
