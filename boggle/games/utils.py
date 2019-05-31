@@ -23,7 +23,8 @@ def load_game_state(board):
 
 
 def is_word_in_dictionary(word):
-    with open('boggle-bobble/dictionary.txt', 'r') as f:
+    dictionary_dir = os.path.join(BASE_DIR, 'boggle/dictionary.txt')
+    with open(dictionary_dir, 'r') as f:
         words = set(word.strip() for word in f.readlines())
 
         if word.lower() in words:
