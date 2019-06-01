@@ -1,2 +1,4 @@
 djangorestframework==3.9.4
 django==2.2.1
+gunicorn==19.9.0
+django-heroku==0.3.1
