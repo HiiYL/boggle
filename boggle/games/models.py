@@ -19,7 +19,8 @@ class Game(models.Model):
 
 
 class Submission(models.Model):
-    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    game = models.ForeignKey(
+        Game, on_delete=models.CASCADE, related_name='submissions')
     word = models.CharField(max_length=255)
     score = models.IntegerField()
 

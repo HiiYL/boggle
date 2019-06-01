@@ -1,7 +1,10 @@
-from django.urls import path
+from django.urls import register_converter, path
+from boggle.games.converters import NegativeIntConverter
 from . import views
+
+register_converter(NegativeIntConverter, 'negint')
 
 urlpatterns = [
     path('', views.GamesView.as_view(), name='games'),
-    path('/<int:game_id>', views.GameDetailView.as_view(), name='get_game'),
+    path('/<negint:game_id>', views.GameDetailView.as_view(), name='get_game'),
 ]

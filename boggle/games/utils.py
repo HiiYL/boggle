@@ -1,4 +1,7 @@
 import os
+import string
+import random
+
 from boggle.settings import GRID_SIZE, BASE_DIR
 
 
@@ -10,6 +13,9 @@ def load_test_board():
 
     return board
 
+def get_random_board():
+    board = [random.choice(string.ascii_letters) for i in range(GRID_SIZE * GRID_SIZE)]
+    return ', '.join(board)
 
 def load_game_state(board):
     game_state = []
