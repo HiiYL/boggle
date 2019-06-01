@@ -113,13 +113,6 @@ class GameDetailView(APIView):
                 score=len(word),
             )
 
-        return Response(
-            {
-                "id": game.id,
-                "token": game.token,
-                "duration": game.duration,
-                "board": game.board,
-                "time_left": 10000,
-                "points": submission.score,
-            }
-        )
+        game = Game.objects.get(id=game_id)
+        serializer = GameSerializer(game)
+        return Response(serializer.data)
