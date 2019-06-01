@@ -19,6 +19,17 @@ def get_token():
     return binascii.b2a_hex(os.urandom(15)).decode('utf-8')
 
 
+def validate_board(board):
+    tiles = board.split(", ")
+    if len(tiles) != GRID_SIZE * GRID_SIZE:
+        return False
+
+    for tile in tiles:
+        if len(tile) != 1:
+            return False
+    return True
+
+
 def get_random_board():
     board = [
         random.choice(

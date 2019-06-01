@@ -31,6 +31,39 @@ class GameTest(TestCase):
             url,
             json.dumps({
                 "duration": duration,
+                "random": False,
+                "board": "A,B,C,D"
+            }),
+            content_type="application/json"
+        )
+        self.assertEquals(400, resp.status_code)
+
+        resp = self.c.post(
+            url,
+            json.dumps({
+                "duration": duration,
+                "random": False,
+                "board": "TT, A, P, *, E, A, K, S, O, B, R, S, S, *, X, D"
+            }),
+            content_type="application/json"
+        )
+        self.assertEquals(400, resp.status_code)
+
+        resp = self.c.post(
+            url,
+            json.dumps({
+                "duration": duration,
+                "random": False,
+                "board": "T, A, P, *, E, A, K, S, O, B, R, S, S, *, X, D"
+            }),
+            content_type="application/json"
+        )
+        self.assertEquals(201, resp.status_code)
+
+        resp = self.c.post(
+            url,
+            json.dumps({
+                "duration": duration,
                 "random": False
             }),
             content_type="application/json"
@@ -42,6 +75,8 @@ class GameTest(TestCase):
 
         self.assertEquals(created_game.id, data['id'])
         self.assertEquals(created_game.duration, duration)
+
+
 
 
 class GameDetailTest(TestCase):

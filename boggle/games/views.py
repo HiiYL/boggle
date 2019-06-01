@@ -12,6 +12,7 @@ from boggle.games.utils import (
     load_test_board,
     get_random_board,
     load_game_state,
+    validate_board,
 )
 
 
@@ -33,6 +34,12 @@ class GamesView(APIView):
         else:
             if not board:
                 board = load_test_board()
+
+        if not validate_board(board):
+            return Response(
+                {'message': 'input board is not valid'},
+                status=400
+            )
 
         token = get_token()
 
