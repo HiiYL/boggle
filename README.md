@@ -1,4 +1,4 @@
-## Boggle Word Game
+## Boggle Word Game   [![Build Status](https://travis-ci.org/HiiYL/boggle.svg?branch=master)](https://travis-ci.org/HiiYL/boggle)
 
 A simple Django implementation of the boggle word game.
 
