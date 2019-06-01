@@ -1,6 +1,7 @@
 import os
 import string
 import random
+import binascii
 
 from boggle.settings import GRID_SIZE, BASE_DIR
 
@@ -12,6 +13,10 @@ def load_test_board():
         board = input_str.strip()
 
     return board
+
+
+def get_token():
+    return binascii.b2a_hex(os.urandom(15)).decode('utf-8')
 
 
 def get_random_board():

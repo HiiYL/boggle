@@ -1,6 +1,4 @@
 import json
-import binascii
-import os
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -10,6 +8,7 @@ from boggle.games.serializers import GameSerializer
 from boggle.games.utils import (
     is_word_in_dictionary,
     is_word_valid,
+    get_token,
     load_test_board,
     get_random_board,
     load_game_state,
@@ -35,7 +34,7 @@ class GamesView(APIView):
             if not board:
                 board = load_test_board()
 
-        token = binascii.b2a_hex(os.urandom(15)).decode('utf-8')
+        token = get_token()
 
         game = Game.objects.create(
             board=board,
@@ -67,7 +66,10 @@ class GameDetailView(APIView):
 
         body = json.loads(request.body)
         token = body.get('token')
-        word = body.get('word').upper()
+        word = body.get('word')
+
+        if word:
+            word = word.upper()
 
         if not token or not word:
             return Response(

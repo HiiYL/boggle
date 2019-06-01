@@ -2,6 +2,8 @@ from django.urls import register_converter, path
 from boggle.games.converters import NegativeIntConverter
 from . import views
 
+app_name = 'games'
+
 register_converter(NegativeIntConverter, 'negint')
 
 urlpatterns = [
