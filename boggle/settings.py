@@ -117,7 +117,7 @@ USE_TZ = True
 
 APPEND_SLASH = False
 
-GRID_SIZE =  4
+GRID_SIZE = 4
 
 
 # Static files (CSS, JavaScript, Images)

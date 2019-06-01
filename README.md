@@ -10,24 +10,21 @@ A simple Django implementation of the boggle word game.
 
 ## Running the Tests
 
-1. Run Step 1 and Step 2 above.
-2. Install ruby
-3. Install gems:
+#### Django Tests
+```
+python manage.py test
+```
+
+#### Rspec tests
+1. Install ruby
+2. Install gems:
 
 ```
 bundle install
 ```
 
-4. Run test:
+3. Run test:
 
-Rspec tests:
 ```
-1. ensure server is up and running
-2. rspec
+rspec
 ```
-
-Django tests:
-```
-python manage.py test
-```
-
