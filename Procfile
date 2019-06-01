@@ -1,1 +1,1 @@
-web: gunicorn bobble.wsgi --log-file -
+web: gunicorn boggle.wsgi --log-file -
