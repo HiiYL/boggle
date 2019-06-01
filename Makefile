@@ -1,2 +1,5 @@
 tests:
-	python manage.py test boggle.games.tests
+	python manage.py test
+
+rubytest:
+	rspec
