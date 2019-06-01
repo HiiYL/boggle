@@ -19,11 +19,13 @@ bundle install
 ```
 
 4. Run test:
+
 Rspec tests:
 ```
 1. ensure server is up and running
 2. rspec
 ```
+
 Django tests:
 ```
 python manage.py test
