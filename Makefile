@@ -3,3 +3,6 @@ tests:
 
 rubytest:
 	rspec
+
+ci:
+	python manage.py test
